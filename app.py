@@ -2,6 +2,8 @@ import os
 
 
 os.environ["TF_USE_LEGACY_KERAS"] = "1"
+os.environ["TF_NUM_INTRAOP_THREADS"] = "1"
+os.environ["TF_NUM_INTEROP_THREADS"] = "1"
 
 from flask import (
     Flask,
