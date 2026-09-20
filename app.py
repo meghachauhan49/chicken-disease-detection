@@ -80,7 +80,7 @@ init_db()
 # ---------------- MODEL ----------------
 
 model = tf.keras.models.load_model(
-    r"model\efficientnetb3-Chicken Disease-98.14.h5",
+    "model/efficientnetb3-Chicken Disease-98.14.h5",
     compile=False
 )
 
