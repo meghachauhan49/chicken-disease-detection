@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <h2>🐔 Chicken Disease Detection</h2>
+
+    <a href="/dashboard" class="nav-button">
+        ← Dashboard
+    </a>
+
+</nav>
+
+
+<div class="page-container">
+
+    <h1>📊 Prediction History</h1>
+
+    <p class="page-subtitle">
+        Your previous chicken disease predictions.
+    </p>
+
+
+    <div class="history-card">
+
+        {% if predictions %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Disease</th>
+                    <th>Confidence</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for prediction in predictions %}
+
+                <tr>
+
+                    <td>
+                        {{ prediction["date_time"] }}
+                    </td>
+
+                    <td class="disease-text">
+                        {{ prediction["disease"] }}
+                    </td>
+
+                    <td class="confidence-text">
+                        {{ "%.2f"|format(prediction["confidence"] * 100) }}%
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty-history">
+
+            <div class="empty-icon">📂</div>
+
+            <h3>No predictions yet</h3>
+
+            <p>
+                Your prediction history will appear here.
+            </p>
+
+            <a href="/dashboard" class="card-button">
+                Make a Prediction
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

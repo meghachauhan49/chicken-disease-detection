@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f7f4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ---------------- AUTH ---------------- */
+
+.auth-body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8f5e9,
+            #c8e6c9
+        );
+}
+
+.auth-container {
+    width: 390px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.12);
+}
+
+.register-box {
+    width: 410px;
+}
+
+.logo {
+    text-align: center;
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 28px;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 17px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #43a047;
+}
+
+.main-button {
+    width: 100%;
+    padding: 13px;
+    background: #43a047;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #2e7d32;
+}
+
+.bottom-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+.bottom-text a {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+
+/* ---------------- NAVBAR ---------------- */
+
+.navbar {
+    background: #2e7d32;
+    color: white;
+    padding: 18px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    font-size: 22px;
+    color: white;
+}
+
+.nav-button {
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+}
+
+.nav-button:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* ---------------- DASHBOARD ---------------- */
+
+.dashboard-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h1 {
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #666;
+}
+
+.prediction-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    margin-bottom: 25px;
+}
+
+.prediction-card h2 {
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.prediction-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.predict-button {
+    width: auto;
+    padding: 12px 25px;
+}
+
+.preview {
+    display: none;
+    width: 260px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.result {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #e8f5e9;
+    border-radius: 12px;
+}
+
+.result h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.result p {
+    margin-bottom: 5px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.card-button {
+    display: inline-block;
+    background: #43a047;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 8px;
+}
+
+.card-button:hover {
+    background: #2e7d32;
+}
+
+.active-badge {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+
+/* ---------------- HISTORY ---------------- */
+
+.page-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.page-container h1 {
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.history-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.08);
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.disease-text {
+    font-weight: bold;
+}
+
+.confidence-text {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.empty-history {
+    text-align: center;
+    padding: 45px;
+}
+
+.empty-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.empty-history h3 {
+    margin-bottom: 8px;
+    color: #2e7d32;
+}
+
+.empty-history p {
+    margin-bottom: 18px;
+    color: #777;
+}
+
+
+/* ---------------- DISEASE INFO ---------------- */
+
+.disease-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.disease-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.08);
+}
+
+.disease-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.disease-card h2 {
+    color: #2e7d32;
+    margin-bottom: 12px;
+}
+
+.disease-card h3 {
+    color: #444;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.disease-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.disease-card ul {
+    margin-left: 20px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.important-note {
+    margin-top: 25px;
+    padding: 18px;
+    background: #fff8e1;
+    color: #6d5b00;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
+
+/* ---------------- SIMPLE PAGE ---------------- */
+
+.simple-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.simple-page .prediction-card {
+    width: 600px;
+    text-align: center;
+}
+
+.simple-page .prediction-card h1 {
+    margin-bottom: 10px;
+}
+
+.simple-page .prediction-card p {
+    margin-bottom: 20px;
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 800px) {
+
+    .feature-grid,
+    .disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar h2 {
+        font-size: 17px;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 410px;
+    }
+}
