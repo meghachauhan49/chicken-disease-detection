@@ -1,11 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard - Chicken Disease Detection</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
 </head>
 
 <body>
@@ -24,11 +29,15 @@
 <div class="dashboard-container">
 
     <div class="welcome">
-        <h1>Welcome, {{ user_name }} 👋</h1>
+
+        <h1>
+            Welcome, {{ user_name }} 👋
+        </h1>
 
         <p>
             Detect possible chicken diseases using AI-powered image analysis.
         </p>
+
     </div>
 
 
@@ -73,15 +82,22 @@
 
         <div class="feature-card">
 
-            <div class="feature-icon">📊</div>
+            <div class="feature-icon">
+                📊
+            </div>
 
-            <h3>Prediction History</h3>
+            <h3>
+                Prediction History
+            </h3>
 
             <p>
                 View your previous AI predictions and confidence scores.
             </p>
 
-            <a href="/history" class="card-button">
+            <a
+                href="/history"
+                class="card-button"
+            >
                 View History
             </a>
 
@@ -90,15 +106,22 @@
 
         <div class="feature-card">
 
-            <div class="feature-icon">📚</div>
+            <div class="feature-icon">
+                📚
+            </div>
 
-            <h3>Disease Information</h3>
+            <h3>
+                Disease Information
+            </h3>
 
             <p>
                 Learn about common poultry diseases and prevention.
             </p>
 
-            <a href="/disease-info" class="card-button">
+            <a
+                href="/disease-info"
+                class="card-button"
+            >
                 Learn More
             </a>
 
@@ -107,9 +130,13 @@
 
         <div class="feature-card">
 
-            <div class="feature-icon">🤖</div>
+            <div class="feature-icon">
+                🤖
+            </div>
 
-            <h3>AI Detection</h3>
+            <h3>
+                AI Detection
+            </h3>
 
             <p>
                 Powered by an EfficientNetB3 deep learning model.
@@ -146,7 +173,8 @@ imageInput.addEventListener(
             preview.src =
                 URL.createObjectURL(file);
 
-            preview.style.display = "block";
+            preview.style.display =
+                "block";
         }
     }
 );
@@ -163,11 +191,14 @@ async function predictDisease() {
         return;
     }
 
+
     const file =
         imageInput.files[0];
 
+
     const formData =
         new FormData();
+
 
     formData.append(
         "image",
@@ -178,7 +209,10 @@ async function predictDisease() {
     const result =
         document.getElementById("result");
 
-    result.style.display = "block";
+
+    result.style.display =
+        "block";
+
 
     result.innerHTML =
         "🔄 Analyzing image using AI model...";
@@ -196,16 +230,88 @@ async function predictDisease() {
             );
 
 
-        const data =
-            await response.json();
+        /*
+         * Read the response as text first.
+         *
+         * This helps us handle cases where
+         * Render returns an empty response or
+         * a non-JSON error response.
+         */
 
+        const text =
+            await response.text();
+
+
+        console.log(
+            "Response status:",
+            response.status
+        );
+
+
+        console.log(
+            "Response text:",
+            text
+        );
+
+
+        /*
+         * Check HTTP status before
+         * trying to read JSON.
+         */
+
+        if (!response.ok) {
+
+            result.innerHTML =
+                "❌ Server Error: " +
+                response.status +
+                "<br><small>" +
+                text +
+                "</small>";
+
+            return;
+        }
+
+
+        /*
+         * Check if the server returned
+         * an empty response.
+         */
+
+        if (!text) {
+
+            result.innerHTML =
+                "❌ Server returned an empty response.";
+
+            return;
+        }
+
+
+        /*
+         * Convert the response text
+         * into JSON.
+         */
+
+        const data =
+            JSON.parse(text);
+
+
+        /*
+         * Handle error returned by Flask.
+         */
 
         if (data.error) {
 
             result.innerHTML =
-                "❌ Error: " + data.error;
+                "❌ Error: " +
+                data.error;
 
-        } else {
+        }
+
+        /*
+         * Handle successful prediction.
+         */
+
+        else {
 
             result.innerHTML =
 
@@ -221,7 +327,15 @@ async function predictDisease() {
 
         }
 
-    } catch (error) {
+    }
+
+    catch (error) {
+
+        console.error(
+            "Prediction error:",
+            error
+        );
+
 
         result.innerHTML =
             "❌ Connection Error: " +
@@ -235,3 +349,4 @@ async function predictDisease() {
 
 </body>
 </html>
+```
