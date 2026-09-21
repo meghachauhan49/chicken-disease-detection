@@ -1,0 +1,7 @@
+services:
+  chicken-disease-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      TF_USE_LEGACY_KERAS: "1"
